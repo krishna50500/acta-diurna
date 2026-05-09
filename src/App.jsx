@@ -208,10 +208,12 @@ const handleSubmit = async () => {
               language built for sixteen-year-olds who refuse to be ignored.
 
             </p>
-
-            <button className="pulse-cta mt-10 bg-black text-[#F4F4F0] px-8 py-4 border-2 border-black mono uppercase tracking-[0.25em] text-sm">
-              Claim My Subscription →
-            </button>
+            <a
+             href="#signup"
+             className="inline-block pulse-cta mt-10 bg-black text-[#F4F4F0] px-8 py-4 border-2 border-black mono uppercase tracking-[0.25em] text-sm"
+         >
+             Claim My Subscription →
+            </a>
 
             <div className="absolute top-6 right-6 rotate-[-12deg] border-2 border-black bg-[#F4F4F0] px-4 py-2 mono uppercase text-[10px] tracking-[0.25em]">
               EDITOR’S DESK
@@ -576,8 +578,7 @@ const handleSubmit = async () => {
 
 </section>
 {/* SIGNUP SECTION */}
-<section className="border-b-4 border-black px-4 md:px-12 py-16">
-
+<section id="signup" className="border-b-4 border-black px-4 md:px-12 py-16">
   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-7xl mx-auto">
 
     {/* LEFT PANEL */}
