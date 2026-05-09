@@ -1,3 +1,5 @@
+import { supabase } from './supabase'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Newspaper,
@@ -73,6 +75,56 @@ className: 'md:col-span-6 md:row-span-2 min-h-[540px]',
   },
 ]
 export default function App() {
+const [name, setName] = useState('')
+const [email, setEmail] = useState('')
+const [grade, setGrade] = useState('')
+
+const [loading, setLoading] = useState(false)
+const [submitted, setSubmitted] = useState(false)
+const handleSubmit = async () => {
+
+  if (!name || !email || !grade) {
+    alert('Fill all three fields.')
+    return
+  }
+
+  try {
+
+    setLoading(true)
+
+    const { error } = await supabase
+      .from('Subscribers')
+      .insert([
+        {
+          name,
+          email,
+          grade,
+        },
+      ])
+
+    if (error) {
+      console.error(error)
+      alert('Something went wrong.')
+      return
+    }
+
+    setSubmitted(true)
+
+    setName('')
+    setEmail('')
+    setGrade('')
+
+  } catch (err) {
+
+    console.error(err)
+    alert('Server error.')
+
+  } finally {
+
+    setLoading(false)
+
+  }
+}
   return (
     <main className="bg-[#F4F4F0] text-[#0A0A0A] overflow-x-hidden">
 
@@ -521,11 +573,15 @@ export default function App() {
               Reporter’s Name
             </label>
 
+            
             <input
-              type="text"
-              placeholder="LAST, FIRST"
-              className="w-full border-2 border-black bg-white px-5 py-4 mono uppercase tracking-[0.15em] outline-none transition-all focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_#000]"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="LAST, FIRST"
+           className="w-full border-2 border-black bg-white px-5 py-4 mono uppercase tracking-[0.15em] outline-none transition-all focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_#000]"
             />
+
 
           </div>
 
@@ -537,11 +593,16 @@ export default function App() {
               Mailing Address (Email)
             </label>
 
-            <input
-              type="email"
-              placeholder="reporter@school.edu"
-              className="w-full border-2 border-black bg-white px-5 py-4 mono outline-none transition-all focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_#000]"
-            />
+            
+          <input
+           type="email"
+           value={email}
+           onChange={(e) => setEmail(e.target.value)}
+           placeholder="reporter@school.edu"
+           className="w-full border-2 border-black bg-white px-5 py-4 mono outline-none transition-all focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_#000]"
+          />
+
+
 
           </div>
 
@@ -553,10 +614,12 @@ export default function App() {
               Grade / Class
             </label>
 
+            
             <select
-              className="w-full border-2 border-black bg-white px-5 py-4 mono outline-none transition-all focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_#000]"
-            >
-
+            value={grade}
+            onChange={(e) => setGrade(e.target.value)}
+             className="w-full border-2 border-black bg-white px-5 py-4 mono outline-none transition-all focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_#000]"
+           >
               <option>
                 — Select your bureau —
               </option>
@@ -576,9 +639,18 @@ export default function App() {
 
           <div className="pt-4">
 
-            <button className="pulse-cta bg-black text-[#F4F4F0] px-8 py-5 border-2 border-black mono uppercase tracking-[0.25em] text-sm">
-
-              Subscribe To The Truth →
+            
+         <button
+         onClick={handleSubmit}
+         disabled={loading}
+         className="pulse-cta bg-black text-[#F4F4F0] px-8 py-5 border-2 border-black mono uppercase tracking-[0.25em] text-sm disabled:opacity-50"
+          >
+            
+         {loading
+            ? 'FILING...'
+              : submitted
+                ? 'SUBSCRIBED ✓'
+                  : 'Subscribe To The Truth →'}
 
             </button>
 
