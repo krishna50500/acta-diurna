@@ -277,6 +277,99 @@ const handleSubmit = async () => {
         </div>
 
       </section>
+      {/* NEWS TICKER */}
+
+<section className="border-y-2 border-black overflow-hidden">
+
+  {/* TOP */}
+
+  <div className="bg-black text-[#F4F4F0] py-3 overflow-hidden">
+
+    <div className="ticker-track mono uppercase tracking-[0.25em] text-xs">
+
+      <span className="mx-8">
+        BREAKING ✦ TEEN VOTERS WILL DECIDE THE NEXT DECADE
+      </span>
+
+      <span className="mx-8">
+        THE INTERNET ATE YOUR ATTENTION SPAN — WE’RE GIVING IT BACK
+      </span>
+
+      <span className="mx-8">
+        CLIMATE: 2030 IS NEXT WEEK
+      </span>
+
+      <span className="mx-8">
+        AI WROTE THIS HEADLINE BETTER
+      </span>
+
+      {/* DUPLICATE */}
+
+      <span className="mx-8">
+        BREAKING ✦ TEEN VOTERS WILL DECIDE THE NEXT DECADE
+      </span>
+
+      <span className="mx-8">
+        THE INTERNET ATE YOUR ATTENTION SPAN — WE’RE GIVING IT BACK
+      </span>
+
+      <span className="mx-8">
+        CLIMATE: 2030 IS NEXT WEEK
+      </span>
+
+      <span className="mx-8">
+        AI WROTE THIS HEADLINE BETTER
+      </span>
+
+    </div>
+
+  </div>
+
+  {/* BOTTOM */}
+
+  <div className="bg-[#F4F4F0] text-black py-3 overflow-hidden">
+
+    <div className="ticker-track-reverse mono uppercase tracking-[0.25em] text-xs">
+
+      <span className="mx-8">
+        SIGN UP BELOW ✦ FREE FOREVER
+      </span>
+
+      <span className="mx-8">
+        NO ALGORITHMS, JUST EDITORS
+      </span>
+
+      <span className="mx-8">
+        WRITTEN BY TEENS, FACT-CHECKED BY EVERYONE
+      </span>
+
+      <span className="mx-8">
+        5 MINUTES. EVERY MORNING.
+      </span>
+
+      {/* DUPLICATE */}
+
+      <span className="mx-8">
+        SIGN UP BELOW ✦ FREE FOREVER
+      </span>
+
+      <span className="mx-8">
+        NO ALGORITHMS, JUST EDITORS
+      </span>
+
+      <span className="mx-8">
+        WRITTEN BY TEENS, FACT-CHECKED BY EVERYONE
+      </span>
+
+      <span className="mx-8">
+        5 MINUTES. EVERY MORNING.
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
 {/* MISSION SECTION */}
 <section className="border-b-4 border-black px-4 md:px-12 py-16">
 
