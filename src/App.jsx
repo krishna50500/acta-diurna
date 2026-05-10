@@ -33,7 +33,7 @@ className: 'md:col-span-6 md:row-span-2 min-h-[540px]',
     eyebrow: 'FACTS, NOT FEEDS',
     title: 'Edited by humans',
     body:
-      'Every story is fact-checked by two editors before it goes out. No algorithmic remix.',
+      'Every story is fact-checked before it goes out. No algorithmic remix.',
     icon: ShieldCheck,
     className: 'md:col-span-3',
   },
@@ -49,9 +49,9 @@ className: 'md:col-span-6 md:row-span-2 min-h-[540px]',
 
   {
     eyebrow: 'TEEN BYLINES',
-    title: 'Written by your classmates',
+    title: 'Written by reporters, for you',
     body:
-      'A rotating staff of high-school reporters across 19 cities.',
+      'A rotating pipeline of journalists and media houses',
     icon: Users,
     className: 'md:col-span-4',
   },
